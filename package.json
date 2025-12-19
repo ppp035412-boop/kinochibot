@@ -1,0 +1,42 @@
+{
+  "name": "kinochibot",
+  "module": "src/server.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --quiet --max-warnings 0",
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --noEmit",
+    "start:local": "bun src/server.ts",
+    "dev": "bun run --watch src/server.ts",
+    "build": "bun clean && tsc",
+    "stop": "pm2 stop ecosystem.config.cjs",
+    "start": "pm2 start ecosystem.config.cjs",
+    "restart": "pm2 restart ecosystem.config.cjs",
+    "format": "prettier --write \"**/*.{json,ts,tsx,md,scss,css,html}\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/bun": "latest",
+    "@types/lodash": "^4.17.21",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^25.0.3",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.50.0"
+  },
+  "dependencies": {
+    "@grammyjs/storage-mongodb": "^2.5.1",
+    "grammy": "^1.38.4",
+    "lodash": "^4.17.21",
+    "mongoose": "^9.0.2"
+  },
+  "author": {
+    "name": "Suhrobbek Soatov",
+    "url": "https://soatov.uz",
+    "email": "svkhrobbeck@gmail.com"
+  }
+}
