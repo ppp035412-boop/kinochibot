@@ -67,10 +67,11 @@ handler.on("message:text", async ctx => {
 
   switch (session) {
     case "add_channel": {
-      const channelLinks = text.split("\n");
+      const channelIds = text.split("\n");
 
-      for (const channelLink of channelLinks) {
-        await Channel.create({ username: channelLink?.replace("@", "") });
+      for (const channelId of channelIds) {
+        const channelInfo = await ctx.api.getChat(channelId.trim());
+        await Channel.create({ username: channelInfo.username, channelId: channelInfo.id });
         await ctx.reply("Kanal muvaffaqiyatli qo'shildi!");
       }
 

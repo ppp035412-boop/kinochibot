@@ -11,7 +11,7 @@ const callbacksHandler: CallbackQueryMiddleware<BotCTX> = async ctx => {
   switch (true) {
     case /check_subscription/.test(callback_data): {
       const subscribed = await checkIsSubscribed(chatId);
-      console.log("yes");
+
       if (subscribed) {
         await ctx.editMessageText("Botdan foydalanishingiz mumkin! Kod yuboring.");
       } else {
@@ -23,7 +23,7 @@ const callbacksHandler: CallbackQueryMiddleware<BotCTX> = async ctx => {
 
     case /add_channel/.test(callback_data):
       ctx.session.state = "add_channel";
-      await ctx.editMessageText("Iltimos, kanalni yuboring, Quyidagi shablon bo'yicha: <code>\nhttps://t.me/kanalning_havolasi2\nhttps://t.me/kanalning_havolasi2\n...</code>", {
+      await ctx.editMessageText("Iltimos, kanal IDsini yuboring, Quyidagi shablon bo'yicha: <code>\n-032323111134\n-13759202454322\n...</code>", {
         parse_mode: "HTML",
         link_preview_options: { is_disabled: true },
       });

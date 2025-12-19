@@ -17,9 +17,8 @@ export const checkIsSubscribed = async (userId: number) => {
 
   for (const channel of channels) {
     try {
-      const member = await bot.api.getChatMember(channel.username.replace("https://t.me/", "@"), userId);
+      const member = await bot.api.getChatMember(channel.channelId, userId);
       const status = get(member, "status", "left");
-      console.log(status);
 
       if (!ACCESS_STATUSES.includes(status)) return false;
     } catch (_err) {

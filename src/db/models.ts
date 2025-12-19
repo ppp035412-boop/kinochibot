@@ -17,6 +17,7 @@ export const Video = model("Video", videoSchema);
 // Channel
 const channelSchema = new Schema({
   username: { ...reqString, unique: true },
+  channelId: { ...reqNumber, unique: true },
   isActive: { type: Boolean, default: true },
 });
 
