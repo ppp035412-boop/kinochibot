@@ -1,5 +1,3 @@
-export const CHANNELS = ["javokhirtest"];
-
 export const ACCESS_STATUSES = ["member", "administrator", "creator"];
 
 export const SOURCE_CHANNEL_ID = Number(process.env.SOURCE_CHANNEL_ID ?? 0);
