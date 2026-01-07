@@ -3,7 +3,7 @@ import { limit } from "@grammyjs/ratelimiter";
 
 import handler from "@/bot/handlers";
 import type { BotCTX } from "@/bot/types";
-import { sessionMiddleware } from "@/bot/middlewares";
+import { errorHandlerMiddleware, sessionMiddleware } from "@/bot/middlewares";
 
 const bot = new Bot<BotCTX>(process.env.BOT_TOKEN!);
 
@@ -17,5 +17,6 @@ bot.use(
 );
 bot.use(sessionMiddleware);
 bot.use(handler);
+bot.catch(errorHandlerMiddleware);
 
 export default bot;

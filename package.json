@@ -29,10 +29,12 @@
     "typescript-eslint": "^8.50.0"
   },
   "dependencies": {
+    "@grammyjs/ratelimiter": "^1.2.1",
     "@grammyjs/storage-mongodb": "^2.5.1",
     "grammy": "^1.38.4",
     "lodash": "^4.17.21",
-    "mongoose": "^9.0.2"
+    "mongoose": "^9.0.2",
+    "utilzify": "^1.8.3"
   },
   "author": {
     "name": "Suhrobbek Soatov",
