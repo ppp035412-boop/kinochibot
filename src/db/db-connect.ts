@@ -1,5 +1,7 @@
+import dns from "dns/promises";
 import mongoose from "mongoose";
 
+dns.setServers(["1.1.1.1"]);
 // mongoose.set("strictQuery", true);
 
 mongoose.connection.on("connected", () => {
