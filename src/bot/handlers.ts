@@ -2,11 +2,12 @@ import { get } from "lodash";
 import { Composer } from "grammy";
 
 import { Channel, Video } from "@/db/models";
+import { extractVideoCode, getFile } from "@/utils";
+import { NUM_STRICT_REGEX, SOURCE_CHANNEL_ID } from "@/helpers/constants";
+
 import type { BotCTX } from "@/bot/types";
 import callbacksHandler from "@/bot/callbacks";
 import { adminKeyboard } from "@/bot/keyboards";
-import { extractVideoCode, getFile } from "@/utils";
-import { SOURCE_CHANNEL_ID } from "@/helpers/constants";
 import { checkMembershipMiddleware } from "@/bot/middlewares";
 import { askToSubscribe, checkIsAdmin, checkIsSubscribed } from "@/bot/utils";
 
@@ -81,7 +82,7 @@ handler.on("message:text", async ctx => {
 
     case "start":
     default: {
-      const isValidNumberCode = /^\d+$/.test(text);
+      const isValidNumberCode = NUM_STRICT_REGEX.test(text);
 
       if (!isValidNumberCode) {
         return ctx.reply("Noto'g'ri formatdagi kod. Faqat raqam yuboring.");
