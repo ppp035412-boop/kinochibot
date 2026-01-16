@@ -1,0 +1,1 @@
+export type BotUserTypes = "member" | "administrator" | "creator" | "left" | "restricted" | "kicked";

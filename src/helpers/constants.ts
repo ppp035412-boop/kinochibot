@@ -1,4 +1,6 @@
-export const ACCESS_STATUSES = ["member", "administrator", "creator"];
+import type { BotUserTypes } from "@/helpers/types";
+
+export const ACCESS_STATUSES: readonly BotUserTypes[] = ["member", "administrator", "creator"];
 
 export const SOURCE_CHANNEL_ID = Number(process.env.SOURCE_CHANNEL_ID ?? 0);
 
