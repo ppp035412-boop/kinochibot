@@ -14,7 +14,7 @@ export const checkIsAdmin = async (userId: number) => {
 export const checkIsSubscribed = async (userId: number) => {
   const channels = await Channel.find();
 
-  if (channels.length === 0) return true;
+  if (channels.length < 1) return true;
 
   for (const channel of channels) {
     try {
